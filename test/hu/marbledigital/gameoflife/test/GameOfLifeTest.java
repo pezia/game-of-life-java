@@ -1,6 +1,8 @@
-package hu.md.qualysoft.tdd.test;
+package hu.marbledigital.gameoflife.test;
 
-import hu.md.qualysoft.tdd.*;
+import hu.marbledigital.gameoflife.Cell;
+import hu.marbledigital.gameoflife.World;
+import hu.marbledigital.gameoflife.GameOfLife;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;

@@ -1,4 +1,4 @@
-package hu.md.qualysoft.tdd;
+package hu.marbledigital.gameoflife;
 
 public class GameOfLife {
 
