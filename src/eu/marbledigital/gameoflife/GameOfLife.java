@@ -1,4 +1,4 @@
-package hu.marbledigital.gameoflife;
+package eu.marbledigital.gameoflife;
 
 public class GameOfLife {
 

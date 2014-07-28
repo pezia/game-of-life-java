@@ -1,8 +1,8 @@
-package hu.marbledigital.gameoflife.test;
+package eu.marbledigital.gameoflife.test;
 
-import hu.marbledigital.gameoflife.Cell;
-import hu.marbledigital.gameoflife.World;
-import hu.marbledigital.gameoflife.GameOfLife;
+import eu.marbledigital.gameoflife.Cell;
+import eu.marbledigital.gameoflife.World;
+import eu.marbledigital.gameoflife.GameOfLife;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
