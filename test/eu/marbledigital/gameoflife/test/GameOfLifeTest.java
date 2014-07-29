@@ -3,11 +3,11 @@ package eu.marbledigital.gameoflife.test;
 import eu.marbledigital.gameoflife.Cell;
 import eu.marbledigital.gameoflife.World;
 import eu.marbledigital.gameoflife.GameOfLife;
-import java.util.List;
 import org.junit.After;
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /**
  * GameOfLife tests

@@ -5,27 +5,28 @@ import eu.marbledigital.gameoflife.World;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
  * World tests
- * 
+ *
  * @author Zsolt Petrik
  */
 public class WorldTest {
-
+    
     private World world;
-
+    
     @Before
     public void setUp() {
         this.world = new World();
     }
-
+    
     @After
     public void tearDown() {
         this.world = null;
     }
-
+    
     @Test
     public void testEmptyWorld() {
         assertFalse(world.isAlive(new Cell(0, 0)));
@@ -38,4 +39,12 @@ public class WorldTest {
         assertFalse(world.isAlive(new Cell(0, 1)));
     }
     
+    @Test
+    public void testMultipleAddsDoNotDuplicate() {
+        world.add(new Cell(0, 0));
+        world.add(new Cell(0, 0));
+        world.add(new Cell(0, 0));
+        
+        assertEquals(1, world.getLivingNeighbourCount(new Cell(0, 1)));
+    }
 }

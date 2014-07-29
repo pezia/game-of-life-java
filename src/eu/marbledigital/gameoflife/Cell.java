@@ -29,6 +29,14 @@ public class Cell {
         return this.x == otherCell.x && this.y == otherCell.y;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 89 * hash + this.x;
+        hash = 89 * hash + this.y;
+        return hash;
+    }
+
     public List<Cell> getNeighbours() {
         ArrayList<Cell> neighbours = new ArrayList<>(8);
 

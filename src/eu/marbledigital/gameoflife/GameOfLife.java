@@ -2,7 +2,7 @@ package eu.marbledigital.gameoflife;
 
 /**
  * GameOfLife game logic
- * 
+ *
  * @author Zsolt Petrik
  */
 public class GameOfLife {

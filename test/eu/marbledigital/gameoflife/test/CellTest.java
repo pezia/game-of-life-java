@@ -3,6 +3,7 @@ package eu.marbledigital.gameoflife.test;
 import eu.marbledigital.gameoflife.Cell;
 import java.util.List;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
@@ -28,7 +29,6 @@ public class CellTest {
         assertFalse(cell1.equals(cell2));
     }
 
-    
     @Test
     public void testNeighbours() {
         Cell cell = new Cell(0, 0);
