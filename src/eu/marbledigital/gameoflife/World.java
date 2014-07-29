@@ -22,13 +22,12 @@ public class World extends HashSet<Cell> {
     public int getLivingNeighbourCount(Cell cell) {
         int neighbourCount = 0;
 
-        List<Cell> neighbours = cell.getNeighbours();
-
-        for (Cell livingCell : this) {
-            if (neighbours.contains(livingCell)) {
+        for(Cell neighbour : cell.getNeighbours()) {
+            if(this.contains(neighbour)) {
                 neighbourCount++;
             }
         }
+
         return neighbourCount;
     }
 }
