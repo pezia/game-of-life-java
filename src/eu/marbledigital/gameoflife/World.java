@@ -1,16 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package eu.marbledigital.gameoflife;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author zsolt
+ * World class
+ * Contains the alive Cell objects
+ * 
+ * @author Zsolt Petrik
  */
 public class World extends ArrayList<Cell> {
 

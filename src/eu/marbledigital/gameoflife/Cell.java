@@ -1,16 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package eu.marbledigital.gameoflife;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Cell Represents a 2D, square shaped cell
  *
- * @author zsolt
+ * @author Zsolt Petrik
  */
 public class Cell {
 

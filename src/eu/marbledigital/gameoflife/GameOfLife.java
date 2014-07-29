@@ -1,8 +1,13 @@
 package eu.marbledigital.gameoflife;
 
+/**
+ * GameOfLife game logic
+ * 
+ * @author Zsolt Petrik
+ */
 public class GameOfLife {
 
-    public World getNextWorld(World world) {
+    public World generateNext(World world) {
         World nextWorld = new World();
 
         for (Cell cell : world) {
