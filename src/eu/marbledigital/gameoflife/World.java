@@ -22,8 +22,8 @@ public class World extends HashSet<Cell> {
     public int getLivingNeighbourCount(Cell cell) {
         int neighbourCount = 0;
 
-        for(Cell neighbour : cell.getNeighbours()) {
-            if(this.contains(neighbour)) {
+        for (Cell neighbour : cell.getNeighbours()) {
+            if (this.contains(neighbour)) {
                 neighbourCount++;
             }
         }

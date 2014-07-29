@@ -151,4 +151,14 @@ public class GameOfLifeTest {
 
         assertFalse(nextWorld.isAlive(new Cell(0, 0)));
     }
+
+    @Test
+    public void testDeadCellWithThreeNeighboursBirths() {
+        World nextWorld = generateNewWorldForCells(new Cell[]{
+            new Cell(-1, 0),
+            new Cell(0, 0),
+            new Cell(1, 0),});
+
+        assertTrue(nextWorld.isAlive(new Cell(0, 1)));
+    }
 }
