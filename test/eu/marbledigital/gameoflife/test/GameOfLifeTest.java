@@ -47,8 +47,6 @@ public class GameOfLifeTest {
 
     @Test
     public void testLonelyCellDies() {
-        world.add(new Cell(0, 0));
-
         World nextWorld = generateNewWorldForCells(new Cell[]{new Cell(0, 0)});
 
         assertFalse(nextWorld.isAlive(new Cell(0, 0)));
