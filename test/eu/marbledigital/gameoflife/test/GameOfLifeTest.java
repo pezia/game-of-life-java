@@ -3,6 +3,7 @@ package eu.marbledigital.gameoflife.test;
 import eu.marbledigital.gameoflife.Cell;
 import eu.marbledigital.gameoflife.World;
 import eu.marbledigital.gameoflife.GameOfLife;
+import java.util.Arrays;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,6 +32,12 @@ public class GameOfLifeTest {
         this.gameOfLife = null;
     }
 
+    private World generateNewWorldForCells(Cell[] cells) {
+        world.addAll(Arrays.asList(cells));
+
+        return gameOfLife.generateNext(world);
+    }
+
     @Test
     public void testEmptyWorld() {
         World nextWorld = gameOfLife.generateNext(world);
@@ -42,68 +49,108 @@ public class GameOfLifeTest {
     public void testLonelyCellDies() {
         world.add(new Cell(0, 0));
 
-        World nextWorld = gameOfLife.generateNext(world);
+        World nextWorld = generateNewWorldForCells(new Cell[]{new Cell(0, 0)});
 
         assertFalse(nextWorld.isAlive(new Cell(0, 0)));
     }
 
     @Test
     public void testCellWithOneNeighbourDies() {
-        world.add(new Cell(0, 0));
-        world.add(new Cell(0, 1));
-
-        World nextWorld = gameOfLife.generateNext(world);
+        World nextWorld = generateNewWorldForCells(new Cell[]{
+            new Cell(0, 0),
+            new Cell(0, 1),});
 
         assertFalse(nextWorld.isAlive(new Cell(0, 0)));
     }
 
     @Test
     public void testCellWithTwoNeighboursLivesOn() {
-        world.add(new Cell(0, -1));
-        world.add(new Cell(0, 0));
-        world.add(new Cell(0, 1));
-
-        World nextWorld = gameOfLife.generateNext(world);
+        World nextWorld = generateNewWorldForCells(new Cell[]{
+            new Cell(0, -1),
+            new Cell(0, 0),
+            new Cell(0, 1),});
 
         assertTrue(nextWorld.isAlive(new Cell(0, 0)));
     }
 
     @Test
-    public void testLivingNeighbourCountOneNeighbour() {
-        world.add(new Cell(0, 0));
-
-        assertEquals(1, world.getLivingNeighbourCount(new Cell(0, 1)));
-    }
-
-    @Test
-    public void testLivingNeighbourCountTwoNeighbours() {
-        world.add(new Cell(0, 0));
-        world.add(new Cell(0, 1));
-
-        assertEquals(2, world.getLivingNeighbourCount(new Cell(1, 0)));
-    }
-
-    @Test
     public void testCellWithThreeNeighboursLivesOn() {
-        world.add(new Cell(0, -1));
-        world.add(new Cell(0, 0));
-        world.add(new Cell(0, 1));
-        world.add(new Cell(-1, 0));
-
-        World nextWorld = gameOfLife.generateNext(world);
+        World nextWorld = generateNewWorldForCells(new Cell[]{
+            new Cell(0, -1),
+            new Cell(0, 0),
+            new Cell(0, 1),
+            new Cell(-1, 0),});
 
         assertTrue(nextWorld.isAlive(new Cell(0, 0)));
     }
 
     @Test
     public void testCellWithFourNeighboursDies() {
-        world.add(new Cell(0, -1));
-        world.add(new Cell(0, 0));
-        world.add(new Cell(0, 1));
-        world.add(new Cell(-1, 0));
-        world.add(new Cell(1, 0));
+        World nextWorld = generateNewWorldForCells(new Cell[]{
+            new Cell(0, -1),
+            new Cell(0, 0),
+            new Cell(0, 1),
+            new Cell(-1, 0),
+            new Cell(1, 0),});
 
-        World nextWorld = gameOfLife.generateNext(world);
+        assertFalse(nextWorld.isAlive(new Cell(0, 0)));
+    }
+
+    @Test
+    public void testCellWithFiveNeighboursDies() {
+        World nextWorld = generateNewWorldForCells(new Cell[]{
+            new Cell(0, -1),
+            new Cell(0, 0),
+            new Cell(0, 1),
+            new Cell(-1, 0),
+            new Cell(1, 0),
+            new Cell(-1, -1),});
+
+        assertFalse(nextWorld.isAlive(new Cell(0, 0)));
+    }
+
+    @Test
+    public void testCellWithSixNeighboursDies() {
+        World nextWorld = generateNewWorldForCells(new Cell[]{
+            new Cell(0, -1),
+            new Cell(0, 0),
+            new Cell(0, 1),
+            new Cell(-1, 0),
+            new Cell(1, 0),
+            new Cell(-1, -1),
+            new Cell(1, 1),});
+
+        assertFalse(nextWorld.isAlive(new Cell(0, 0)));
+    }
+
+    @Test
+    public void testCellWithSevenNeighboursDies() {
+        World nextWorld = generateNewWorldForCells(new Cell[]{
+            new Cell(0, -1),
+            new Cell(0, 0),
+            new Cell(0, 1),
+            new Cell(-1, 0),
+            new Cell(1, 0),
+            new Cell(-1, -1),
+            new Cell(1, 1),
+            new Cell(-1, 1),});
+
+        assertFalse(nextWorld.isAlive(new Cell(0, 0)));
+    }
+
+    @Test
+    public void testCellWithEightNeighboursDies() {
+        World nextWorld = generateNewWorldForCells(new Cell[]{
+            new Cell(0, -1),
+            new Cell(0, 0),
+            new Cell(0, 1),
+            new Cell(-1, 0),
+            new Cell(1, 0),
+            new Cell(-1, -1),
+            new Cell(1, 1),
+            new Cell(-1, 1),
+            new Cell(1, -1),});
+
         assertFalse(nextWorld.isAlive(new Cell(0, 0)));
     }
 }
